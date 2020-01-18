@@ -5,17 +5,18 @@
 function FindKthToTail(head, k)
 {
     // write code here
-    var len =0;
-    var a = head;
-    while(a){
-        len++;
-        a = a.next;
+    var slow = head;
+    var quick = head;
+    var k2 = k;
+    var count = 0;
+    while(quick){
+        if(count>=k){
+            slow = slow.next
+        }
+        count++;
+        quick = quick.next;
     }
-    if(k>len)
-        return null
-    var nodek = head;
-    for(var i = 0;i<len-k;i++){
-        nodek = nodek.next;
-    }
-    return nodek;
+    if(count<k)
+        return null;
+    return slow;
 }
